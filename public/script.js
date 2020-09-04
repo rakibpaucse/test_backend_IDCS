@@ -1,7 +1,8 @@
 const socket = io('/')
 const videoGrid = document.getElementById('video-grid')
 const myPeer = new Peer(undefined, {
-  host: '/',
+  secure: true, 
+  host: 'https://test-idcs.herokuapp.com',
   port: '3001'
 })
 const myVideo = document.createElement('video')
