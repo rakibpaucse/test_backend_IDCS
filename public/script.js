@@ -1,5 +1,3 @@
-
-
 const socket = io('/')
 const videoGrid = document.getElementById('video-grid')
 const myPeer = new Peer(undefined, {
@@ -24,6 +22,8 @@ navigator.mediaDevices.getUserMedia({
   })
 
   socket.on('user-connected', userId => {
+    console.log('connet' , userId);
+    
     connectToNewUser(userId, stream)
   })
 })

@@ -1,6 +1,3 @@
-
-
-
 const express = require('express')
 const app = express()
 const server = require('http').Server(app)
@@ -22,6 +19,8 @@ app.get('/:room', (req, res) => {
 io.on('connection', socket => {
   socket.on('join-room', (roomId, userId) => {
     socket.join(roomId)
+    console.log('con index');
+    
     socket.to(roomId).broadcast.emit('user-connected', userId)
 
     socket.on('disconnect', () => {
