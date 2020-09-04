@@ -18,9 +18,7 @@ app.get('/:room', (req, res) => {
 
 io.on('connection', socket => {
   socket.on('join-room', (roomId, userId) => {
-    socket.join(roomId)
-    console.log('con index');
-    
+    socket.join(roomId)    
     socket.to(roomId).broadcast.emit('user-connected', userId)
 
     socket.on('disconnect', () => {
